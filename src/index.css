@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* HSL Color Palette */
+  --bg-main: 224 71% 4%;
+  --bg-card: 222 47% 11%;
+  --bg-card-hover: 223 47% 15%;
+  --primary: 263 90% 60%;
+  --primary-hover: 263 90% 50%;
+  --primary-glow: rgba(139, 92, 246, 0.15);
+  
+  --text-main: 210 40% 98%;
+  --text-muted: 215 20.2% 65.1%;
+  --border-color: 217.2 32.6% 17.5%;
+  
+  /* Status Colors */
+  --color-success: 142.1 76.2% 36.3%;
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-error: 0 84.2% 60.2%;
+  --color-error-bg: rgba(239, 68, 68, 0.1);
+  --color-warning: 38 92% 50%;
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-info: 217 91.2% 59.8%;
+  --color-info-bg: rgba(59, 130, 246, 0.1);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  background-color: hsl(var(--bg-main));
+  color: hsl(var(--text-main));
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: hsl(var(--bg-main));
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(263, 90%, 50%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(217, 91%, 60%, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg-main));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border-color));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--text-muted), 0.3);
+}
+
+/* Custom UI Utility Styles */
+.glow-card {
+  background: hsla(var(--bg-card), 0.85);
+  border: 1px solid hsl(var(--border-color));
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glow-card:hover {
+  border-color: hsla(var(--primary), 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 15px var(--primary-glow);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background-color: var(--color-success-bg);
+  color: hsl(var(--color-success));
+  border: 1px solid hsla(var(--color-success), 0.25);
+}
+
+.badge-error {
+  background-color: var(--color-error-bg);
+  color: hsl(var(--color-error));
+  border: 1px solid hsla(var(--color-error), 0.25);
+}
+
+.badge-warning {
+  background-color: var(--color-warning-bg);
+  color: hsl(var(--color-warning));
+  border: 1px solid hsla(var(--color-warning), 0.25);
+}
+
+.badge-info {
+  background-color: var(--color-info-bg);
+  color: hsl(var(--color-info));
+  border: 1px solid hsla(var(--color-info), 0.25);
+}
+
+/* Custom Table Styles */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.custom-table th {
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: hsl(var(--text-muted));
+  border-bottom: 1px solid hsl(var(--border-color));
+  letter-spacing: 0.05em;
+}
+
+.custom-table td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid hsl(var(--border-color));
+  color: hsl(var(--text-main));
+}
+
+.custom-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.custom-table tbody tr:hover {
+  background-color: hsla(var(--bg-card-hover), 0.5);
+}
+
+/* Form controls */
+.input-field {
+  width: 100%;
+  background-color: hsla(var(--bg-main), 0.6);
+  border: 1px solid hsl(var(--border-color));
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: hsl(var(--text-main));
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: hsl(var(--primary-hover));
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: hsl(var(--text-main));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: hsla(var(--text-muted), 0.1);
+  border-color: hsla(var(--text-muted), 0.4);
+}
+
+/* Glassmorphism modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(4, 6, 14, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: hsl(var(--bg-card));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

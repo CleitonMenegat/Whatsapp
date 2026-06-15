@@ -1,0 +1,73 @@
+{
+  "endpoints": [
+    {
+      "id": "whatsapp-teste",
+      "name": "WhatsApp Inbound Lovable",
+      "targetUrl": "https://httpbin.org/post",
+      "apiKey": "esv8absl2u4dnri1minha-super-chave-secreta",
+      "createdAt": "2026-06-15T16:51:52.568Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "9b757eec-8241-43a3-b8ba-a23370dbed59",
+      "endpointId": "whatsapp-teste",
+      "method": "POST",
+      "headers": {
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json",
+        "x-api-key": "esv8absl2u4dnri1minha-super-chave-secreta",
+        "user-agent": "axios/1.18.0",
+        "content-length": "474",
+        "accept-encoding": "gzip, compress, deflate, br",
+        "host": "localhost:3001",
+        "connection": "keep-alive"
+      },
+      "body": {
+        "object": "whatsapp",
+        "entry": [
+          {
+            "id": "1234567890",
+            "changes": [
+              {
+                "value": {
+                  "messaging_product": "whatsapp",
+                  "metadata": {
+                    "display_phone_number": "15555555555",
+                    "phone_number_id": "122222222222222"
+                  },
+                  "contacts": [
+                    {
+                      "profile": {
+                        "name": "Kauan Menegat"
+                      },
+                      "wa_id": "5511999999999"
+                    }
+                  ],
+                  "messages": [
+                    {
+                      "from": "5511999999999",
+                      "id": "wamid.HBgMNTUxMTk5OTk5OTk5OQ==",
+                      "timestamp": "1686851234",
+                      "text": {
+                        "body": "Ola! Isto é um teste de webhook integrado com Lovable."
+                      },
+                      "type": "text"
+                    }
+                  ]
+                },
+                "field": "messages"
+              }
+            ]
+          }
+        ]
+      },
+      "receivedAt": "2026-06-15T16:52:59.396Z",
+      "forwardedTo": "https://httpbin.org/post",
+      "forwardStatus": 200,
+      "forwardResponse": "{\"args\":{},\"data\":\"{\\\"object\\\":\\\"whatsapp\\\",\\\"entry\\\":[{\\\"id\\\":\\\"1234567890\\\",\\\"changes\\\":[{\\\"value\\\":{\\\"messaging_product\\\":\\\"whatsapp\\\",\\\"metadata\\\":{\\\"display_phone_number\\\":\\\"15555555555\\\",\\\"phone_number_id\\\":\\\"122222222222222\\\"},\\\"contacts\\\":[{\\\"profile\\\":{\\\"name\\\":\\\"Kauan Menegat\\\"},\\\"wa_id\\\":\\\"5511999999999\\\"}],\\\"messages\\\":[{\\\"from\\\":\\\"5511999999999\\\",\\\"id\\\":\\\"wamid.HBgMNTUxMTk5OTk5OTk5OQ==\\\",\\\"timestamp\\\":\\\"1686851234\\\",\\\"text\\\":{\\\"body\\\":\\\"Ola! Isto é um teste de webhook integrado com Lovable.\\\"},\\\"type\\\":\\\"text\\\"}]},\\\"field\\\":\\\"messages\\\"}]}]}\",\"files\":{},\"form\":{},\"headers\":{\"Accept\":\"application/json, text/plain, */*\",\"Accept-Encoding\":\"gzip, compress, deflate, br\",\"Content-Length\":\"474\",\"Content-Type\":\"application/json\",\"Host\":\"httpbin.org\",\"User-Agent\":\"axios/1.18.0\",\"X-Amzn-Trace-Id\":\"Root=1-6a302de8-4476246527f568ac0219d978\",\"X-Api-Key\":\"esv8absl2u4dnri1minha-super-chave-secreta\"},\"json\":{\"entry\":[{\"changes\":[{\"field\":\"messages\",\"value\":{\"contacts\":[{\"profile\":{\"name\":\"Kauan Menegat\"},\"wa_id\":\"5511999999999\"}],\"messages\":[{\"from\":\"5511999999999\",\"id\":\"wamid.HBgMNTUxMTk5OTk5OTk5OQ==\",\"text\":{\"body\":\"Ola! Isto é um teste de webhook integrado com Lovable.\"},\"timestamp\":\"1686851234\",\"type\":\"text\"}],\"messaging_product\":\"whatsapp\",\"metadata\":{\"display_phone_number\":\"15555555555\",\"phone_number_id\":\"122222222222222\"}}}],\"id\":\"1234567890\"}],\"object\":\"whatsapp\"},\"origin\":\"186.194.144.74\",\"url\":\"https://httpbin.org/post\"}",
+      "forwardError": "",
+      "latencyMs": 633
+    }
+  ]
+}
