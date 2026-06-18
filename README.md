@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Revitalize / Whatsapp (Projeto)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Resumo
 
-Currently, two official plugins are available:
+Este repositório contém uma base para a plataforma SaaS "Revitalize": front-end React + TypeScript (Vite) e um backend Node.js/Express simples. Foram adicionados scripts e artefatos para facilitar a preparação do ambiente, orquestração com Docker e documentação técnica.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Arquivos importantes adicionados sem necessidade de executar installs:
 
-## React Compiler
+- REVITALIZE.md — resumo do produto e módulos
+- setup.ps1 — script PowerShell para preparação do ambiente no Windows
+- docker/ — Dockerfiles para frontend e backend
+- docker-compose.yml — orquestração local
+- .github/workflows/ci.yml — pipeline CI básico
+- .env.example — variáveis de ambiente de exemplo
+- openapi.yaml — especificação básica da API (OpenAPI 3.0)
+- db/schema.sql — esquema inicial do banco de dados
+- api_examples.md — exemplos curl para testar endpoints
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Como rodar (duas opções)
 
-## Expanding the ESLint configuration
+1) Ambiente local (Node.js)
+- Instale Node.js LTS: https://nodejs.org/
+- No PowerShell (na raiz do projeto):
+  - powershell -ExecutionPolicy Bypass -File .\setup.ps1
+  - npm run server   # inicia backend
+  - npm run dev      # inicia frontend (Vite)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2) Usando Docker
+- Instale Docker Desktop
+- docker-compose up --build
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Banco de dados
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+O projeto inclui db/schema.sql com um modelo inicial. Ajuste conforme o banco escolhido (SQLite / Postgres / MySQL).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+API
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+openapi.yaml contém a especificação mínima para os endpoints principais (auth, instances, messages, campaigns, contacts). Use ferramentas como Swagger UI ou Postman para importar.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Próximos passos que posso executar (sem precisar de ferramentas no seu PC):
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Gerar stubs de rotas Express (TS) com validação e controladores (arquivos prontos para instalar dependências)
+- Gerar migrations/seeders SQL mais detalhados
+- Criar README detalhado ou documentação de deployment
+
+Deseja que eu gere stubs de API em Express (TypeScript) prontos para instalar dependências no outro computador? Responda Sim ou Não.
+

@@ -1,0 +1,127 @@
+openapi: 3.0.1
+info:
+  title: Revitalize API
+  version: '1.0.0'
+  description: Especificação básica da API Revitalize (endpoints principais)
+
+servers:
+  - url: http://localhost:3001
+
+paths:
+  /api/auth/login:
+    post:
+      summary: Autenticar usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: OK
+
+  /api/v1/instances:
+    get:
+      summary: Listar instâncias
+      responses:
+        '200':
+          description: Lista
+    post:
+      summary: Criar instância
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Criada
+
+  /api/v1/instances/{id}/qrcode:
+    get:
+      summary: Obter QR code para instância
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Imagem/PNG (base64)
+
+  /api/v1/messages/send:
+    post:
+      summary: Enviar mensagem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instanceId:
+                  type: string
+                to:
+                  type: string
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Enviado
+
+  /api/v1/campaigns:
+    get:
+      summary: Listar campanhas
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar campanha
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                schedule:
+                  type: string
+      responses:
+        '201':
+          description: Criada
+
+  /api/v1/contacts:
+    get:
+      summary: Listar contatos
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Criar contato
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+      responses:
+        '201':
+          description: Criado
