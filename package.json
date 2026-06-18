@@ -10,6 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "scripts-dev": {
+    "test:server-stubs": "cd server-stubs && npm test"
+  },
   "dependencies": {
     "axios": "^1.18.0",
     "cors": "^2.8.6",
