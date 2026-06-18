@@ -1,5 +1,9 @@
 
+# CI Status
+
 [![CI](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml/badge.svg)](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml)
+[![Latest workflow run](https://img.shields.io/github/actions/workflow/status/CleitonMenegat/Whatsapp/ci.yml?branch=main&label=workflow&logo=github&style=flat-square)](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml)
+
 
 # Revitalize / Whatsapp (Projeto)
 
