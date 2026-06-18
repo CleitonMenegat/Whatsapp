@@ -64,6 +64,13 @@ jobs:
           cd server-stubs
           npm test
 
+      - name: Upload server-stubs coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: server-stubs/coverage/lcov.info
+          flags: server-stubs
+          fail_ci_if_error: true
+
       - name: Lint
         run: npm run lint
         continue-on-error: true

@@ -3,6 +3,7 @@
 
 [![CI](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml/badge.svg)](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml)
 [![Latest workflow run](https://img.shields.io/github/actions/workflow/status/CleitonMenegat/Whatsapp/ci.yml?branch=main&label=workflow&logo=github&style=flat-square)](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml)
+[![Coverage Status](https://codecov.io/gh/CleitonMenegat/Whatsapp/branch/main/graph/badge.svg)](https://codecov.io/gh/CleitonMenegat/Whatsapp)
 
 
 # Revitalize / Whatsapp (Projeto)
