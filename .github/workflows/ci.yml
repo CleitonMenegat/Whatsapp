@@ -14,6 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,6 +29,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Cache server-stubs node_modules
+        uses: actions/cache@v4
+        with:
+          path: server-stubs/node_modules
+          key: ${{ runner.os }}-server-stubs-${{ hashFiles('server-stubs/package-lock.json') }}-${{ hashFiles('server-stubs/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-server-stubs-
 
       - name: Install server-stubs dependencies
         run: |

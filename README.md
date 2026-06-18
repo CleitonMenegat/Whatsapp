@@ -1,3 +1,6 @@
+
+[![CI](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml/badge.svg)](https://github.com/CleitonMenegat/Whatsapp/actions/workflows/ci.yml)
+
 # Revitalize / Whatsapp (Projeto)
 
 Resumo
