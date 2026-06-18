@@ -22,6 +22,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install server-stubs dependencies
+        run: |
+          cd server-stubs
+          npm ci
+
+      - name: Run server-stubs tests
+        run: |
+          cd server-stubs
+          npm test
+
       - name: Lint
         run: npm run lint
         continue-on-error: true
