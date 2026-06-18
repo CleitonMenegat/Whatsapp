@@ -23,6 +23,12 @@ app.use('/api/v1/messages', messagesRoutes);
 app.use('/api/v1/campaigns', campaignsRoutes);
 app.use('/api/v1/contacts', contactsRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Revitalize backend stubs listening on http://localhost:${PORT}`);
-});
+// Export app for testing
+export default app;
+
+// Start server only when not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Revitalize backend stubs listening on http://localhost:${PORT}`);
+  });
+}
